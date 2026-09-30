@@ -32,3 +32,5 @@ viewer.homeButton.viewModel.command.beforeExecute.addEventListener(function(comm
 // Add tileset to viewer and set initial camera position
 viewer.scene.primitives.add(tileset);
 viewer.zoomTo(tileset);
+// Initialisation des outils de mesure
+initMeasureTools(viewer);

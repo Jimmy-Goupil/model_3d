@@ -1,28 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<!-- Use correct character set. -->
-	<meta charset="utf-8">
-	<!-- Tell IE to use the latest, best version. -->
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-	<title>Sigale_maioun_Cesium - Cesium 3D Tiles generated from Bentley iTwin Capture Modeler </title>
-	<script src="Cesium/Cesium.js"></script>
-	<style>
-		@import url(Cesium/Widgets/widgets.css);
+    <!-- Use correct character set. -->
+    <meta charset="utf-8">
+    <!-- Tell IE to use the latest, best version. -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>Sigale_maioun_Cesium - Cesium 3D Tiles generated from Bentley iTwin Capture Modeler </title>
+    <script src="Cesium/Cesium.js"></script>
+    <style>
+        @import url(Cesium/Widgets/widgets.css);
 
-		html, body, #cesiumContainer {
-			width: 100%;
-			height: 100%;
-			margin: 0;
-			padding: 0;
-			overflow: hidden;
-		}
-	</style>
+        html, body, #cesiumContainer {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #measure-panel {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        #measure-panel button {
+            padding: 8px 14px;
+            font-size: 14px;
+            border: none;
+            border-radius: 6px;
+            background: rgba(40, 40, 40, 0.9);
+            color: white;
+            cursor: pointer;
+            text-align: left;
+        }
+        #measure-panel button:hover {
+            background: rgba(70, 130, 200, 0.9);
+        }
+        #measure-message {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(40, 40, 40, 0.9);
+            color: #ffd54f;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-family: sans-serif;
+            font-size: 14px;
+            display: none;
+            z-index: 1000;
+        }
+    </style>
 </head>
 <body>
-	<div id="cesiumContainer"></div>
-	<script src="main.js"></script>
+    <div id="cesiumContainer"></div>
+
+    <!-- PANNEAU MESURES -->
+    <div id="measure-panel">
+        <button onclick="startDistance()" title="Distance">📏 Distance</button>
+        <button onclick="startSurface()" title="Surface">📐 Surface</button>
+        <button onclick="clearAllMeasures()" title="Tout effacer">🗑️ Effacer</button>
+    </div>
+    <div id="measure-message"></div>
+
+    <script src="main.js"></script>
+    <script src="measure.js"></script>
 </body>
 </html>
