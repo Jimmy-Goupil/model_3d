@@ -11,6 +11,8 @@ var viewer = new Cesium.Viewer('cesiumContainer', {
     terrainProvider: new Cesium.EllipsoidTerrainProvider()
 });
 
+viewer.scene.globe.depthTestAgainstTerrain = true;
+
 // Add credit to Bentley
 viewer.scene.frameState.creditDisplay.addDefaultCredit(new Cesium.Credit('<a href="https://www.bentley.com/" target="_blank"><img src="Resources/logoBentley.png"/></a>Cesium 3D Tiles produced by Bentley iTwin Capture Modeler'));
 
